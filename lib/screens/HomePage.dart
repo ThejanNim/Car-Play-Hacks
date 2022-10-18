@@ -1,4 +1,5 @@
 import 'package:car_play/components/disable_search_bar.dart';
+import 'package:car_play/screens/ProductPage.dart';
 import 'package:car_play/screens/SearchPage.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 20.0),
+            //Back button , logo and profile
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -157,8 +159,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                         crossAxisAlignment:
                                                             CrossAxisAlignment
                                                                 .start,
-                                                        children: const [
-                                                          Text(
+                                                        children: [
+                                                          const Text(
                                                             'TMA-2',
                                                             style: TextStyle(
                                                                 fontSize: 22,
@@ -166,7 +168,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                                     FontWeight
                                                                         .w700),
                                                           ),
-                                                          Text(
+                                                          const Text(
                                                             'Modular',
                                                             style: TextStyle(
                                                                 fontSize: 22,
@@ -174,7 +176,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                                     FontWeight
                                                                         .w700),
                                                           ),
-                                                          Text(
+                                                          const Text(
                                                             'Headphone',
                                                             style: TextStyle(
                                                                 fontSize: 22,
@@ -184,9 +186,28 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsets.only(
+                                                                const EdgeInsets
+                                                                        .only(
                                                                     top: 5.0),
-                                                            child: Text(
+                                                            child: TextButton(
+                                                                onPressed: () {
+                                                                  Navigator.push(
+                                                                      context,
+                                                                      MaterialPageRoute(
+                                                                          builder: (context) =>
+                                                                              const ProductPage()));
+                                                                },
+                                                                child:
+                                                                    const Text(
+                                                                  'Shop now',
+                                                                  style: TextStyle(
+                                                                      color: Color.fromARGB(
+                                                                          255,
+                                                                          10,
+                                                                          207,
+                                                                          131)),
+                                                                )),
+                                                            /*Text(
                                                               'Shop now',
                                                               style: TextStyle(
                                                                   color: Color
@@ -195,7 +216,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                                           10,
                                                                           207,
                                                                           131)),
-                                                            ),
+                                                            ),*/
                                                           )
                                                         ],
                                                       ),
@@ -398,11 +419,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   ),
                                 ),
                               ),
-                              Text("Headband"),
-                              Text('Earpads'),
-                              Text('Cable'),
-                              Text('Movies'),
-                              Text('EarPhone')
+                              const Text("Headband"),
+                              const Text('Earpads'),
+                              const Text('Cable'),
+                              const Text('Movies'),
+                              const Text('EarPhone')
                             ],
                           ),
                         )
@@ -432,161 +453,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20.0,
                             ),
                             Expanded(
                               child: ListView(
                                 scrollDirection: Axis.horizontal,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                        0, 0, 15.0, 20.0),
-                                    child: Container(
-                                      width: 155.0,
-                                      decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          color: Colors.white),
-                                      child: Column(
-                                        children: [
-                                          Image.asset(
-                                              'assets/images/product2.png'),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: const [
-                                              Text(
-                                                'TMA-2 HD Wireless',
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
-                                              Text(
-                                                'USD 350',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                              )
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                        0, 0, 15.0, 20.0),
-                                    child: Container(
-                                      width: 155.0,
-                                      decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          color: Colors.white),
-                                      child: Column(
-                                        children: [
-                                          Image.asset(
-                                              'assets/images/product2.png'),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: const [
-                                              Text(
-                                                'TMA-2 HD Wireless',
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
-                                              Text(
-                                                'USD 350',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                              )
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                        0, 0, 15.0, 20.0),
-                                    child: Container(
-                                      width: 155.0,
-                                      decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          color: Colors.white),
-                                      child: Column(
-                                        children: [
-                                          Image.asset(
-                                              'assets/images/product2.png'),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: const [
-                                              Text(
-                                                'TMA-2 HD Wireless',
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
-                                              Text(
-                                                'USD 350',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                              )
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(
-                                        0, 0, 15.0, 20.0),
-                                    child: Container(
-                                      width: 155.0,
-                                      decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.0)),
-                                          color: Colors.white),
-                                      child: Column(
-                                        children: [
-                                          Image.asset(
-                                              'assets/images/product2.png'),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: const [
-                                              Text(
-                                                'TMA-2 HD Wireless',
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
-                                              Text(
-                                                'USD 350',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                              )
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
+                                children: const [
+                                  FeaturedProduct(),
+                                  FeaturedProduct(),
+                                  FeaturedProduct(),
+                                  FeaturedProduct()
                                 ],
                               ),
                             )
@@ -600,5 +477,43 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ],
       ),
     ));
+  }
+}
+
+// Feature Product Item
+class FeaturedProduct extends StatelessWidget {
+  const FeaturedProduct({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 0, 15.0, 20.0),
+      child: Container(
+        width: 155.0,
+        decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+            color: Colors.white),
+        child: Column(
+          children: [
+            Image.asset('assets/images/product2.png'),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'TMA-2 HD Wireless',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+                Text(
+                  'USD 350',
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

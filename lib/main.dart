@@ -1,4 +1,5 @@
 import 'package:car_play/screens/HomePage.dart';
+import 'package:car_play/screens/ProfilePage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,6 +18,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: HomePage());
+        home: ProfilePage());
   }
 }
