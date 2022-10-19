@@ -1,5 +1,6 @@
 import 'package:car_play/components/disable_search_bar.dart';
 import 'package:car_play/screens/ProductPage.dart';
+import 'package:car_play/screens/ProfilePage.dart';
 import 'package:car_play/screens/SearchPage.dart';
 import 'package:flutter/material.dart';
 
@@ -29,9 +30,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   width: 20.0,
                 ),
                 Image.asset('assets/images/Logo.png'),
-                const CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/profile_pic.png'),
-                )
+                IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ProfilePage()));
+                    },
+                    padding: const EdgeInsets.all(0.0),
+                    icon: const CircleAvatar(
+                      backgroundImage:
+                          AssetImage('assets/images/profile_pic.png'),
+                    ))
               ],
             ),
           ),

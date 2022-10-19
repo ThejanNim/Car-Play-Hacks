@@ -109,12 +109,12 @@ class ProfilePage extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 24.0),
                     width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         border: Border(
                             bottom:
                                 BorderSide(width: 1.0, color: Colors.grey))),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 15.0),
                       child: Text(
                         'Notifications',
                         style: TextStyle(
@@ -123,14 +123,14 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 24.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
                     width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         border: Border(
                             bottom:
                                 BorderSide(width: 1.0, color: Colors.grey))),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 15.0),
                       child: Text(
                         'Wishlist',
                         style: TextStyle(
@@ -139,13 +139,13 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                      padding: EdgeInsets.symmetric(horizontal: 24.0),
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          border: Border(
-                              bottom:
-                                  BorderSide(width: 1.0, color: Colors.grey))),
-                      child: Column(
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    width: MediaQuery.of(context).size.width,
+                    decoration: const BoxDecoration(
+                        border: Border(
+                            bottom:
+                                BorderSide(width: 1.0, color: Colors.grey))),
+                    child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
                           SizedBox(
@@ -171,8 +171,75 @@ class ProfilePage extends StatelessWidget {
                           SizedBox(
                             height: 16.0,
                           )
-                        ],
-                      )),
+                        ]),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 24.0),
+                    width: MediaQuery.of(context).size.width,
+                    decoration: const BoxDecoration(
+                        border: Border(
+                            bottom:
+                                BorderSide(width: 1.0, color: Colors.grey))),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 15.0),
+                      child: Text(
+                        'Privacy Policy',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    width: MediaQuery.of(context).size.width,
+                    decoration: const BoxDecoration(
+                        border: Border(
+                            bottom:
+                                BorderSide(width: 1.0, color: Colors.grey))),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Text(
+                            'Personal',
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: Color.fromARGB(255, 127, 127, 127)),
+                          ),
+                          SizedBox(
+                            height: 36.0,
+                          ),
+                          Text(
+                            'Report a Bug',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 16.0,
+                          )
+                        ]),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 24.0),
+                    width: MediaQuery.of(context).size.width,
+                    decoration: const BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(width: 1.0, color: Colors.grey),
+                            top: BorderSide(width: 1.0, color: Colors.grey))),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 15.0),
+                      child: Text(
+                        'Logout',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

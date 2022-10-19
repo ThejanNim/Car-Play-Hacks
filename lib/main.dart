@@ -1,3 +1,4 @@
+import 'package:car_play/screens/ExplorePage.dart';
 import 'package:car_play/screens/HomePage.dart';
 import 'package:car_play/screens/ProfilePage.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: ProfilePage());
+        home: ExplorePage());
   }
 }
