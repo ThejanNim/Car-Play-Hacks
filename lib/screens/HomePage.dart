@@ -3,6 +3,8 @@ import 'package:car_play/screens/ProductPage.dart';
 import 'package:car_play/screens/ProfilePage.dart';
 import 'package:car_play/screens/SearchPage.dart';
 import 'package:flutter/material.dart';
+import 'package:car_play/api/rest_api.dart';
+import 'package:car_play/model/product.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,6 +14,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  late Future<List<ProductModel>> futureDataProduct;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    futureDataProduct = fetchProduct();
+  }
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 6, vsync: this);
@@ -467,16 +477,83 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               height: 20.0,
                             ),
                             Expanded(
-                              child: ListView(
-                                scrollDirection: Axis.horizontal,
-                                children: const [
-                                  FeaturedProduct(),
-                                  FeaturedProduct(),
-                                  FeaturedProduct(),
-                                  FeaturedProduct()
-                                ],
-                              ),
-                            )
+                                child: FutureBuilder<List<ProductModel>>(
+                                    future: futureDataProduct,
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasData) {
+                                        List<ProductModel> productmodel =
+                                            snapshot.data!;
+                                        return ListView.builder(
+                                            scrollDirection: Axis.horizontal,
+                                            itemCount: productmodel.length,
+                                            itemBuilder:
+                                                (BuildContext context, index) {
+                                              if (productmodel[index]
+                                                      .featured ==
+                                                  false) {
+                                                // Featured product items
+                                                return Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          0, 0, 15.0, 20.0),
+                                                  child: Container(
+                                                    width: 155.0,
+                                                    decoration: const BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    10.0)),
+                                                        color: Colors.white),
+                                                    child: Column(
+                                                      children: [
+                                                        Image.asset(
+                                                            'assets/images/product2.png'),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  left: 10.0),
+                                                          child: Column(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Text(
+                                                                  productmodel[
+                                                                          index]
+                                                                      .name,
+                                                                  style: const TextStyle(
+                                                                      fontSize:
+                                                                          14,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w400)),
+                                                              Text(
+                                                                  'USD ' +
+                                                                      productmodel[
+                                                                              index]
+                                                                          .price,
+                                                                  style: const TextStyle(
+                                                                      fontSize:
+                                                                          12,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w700))
+                                                            ],
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                );
+                                              } else {}
+                                              return Text('');
+                                            });
+                                      } else if (snapshot.hasError) {
+                                        return Text('${snapshot.error}');
+                                      }
+                                      return Text('');
+                                    }))
                           ],
                         ),
                       ),
@@ -487,43 +564,5 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ],
       ),
     ));
-  }
-}
-
-// Feature Product Item
-class FeaturedProduct extends StatelessWidget {
-  const FeaturedProduct({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 0, 15.0, 20.0),
-      child: Container(
-        width: 155.0,
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            color: Colors.white),
-        child: Column(
-          children: [
-            Image.asset('assets/images/product2.png'),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'TMA-2 HD Wireless',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-                ),
-                Text(
-                  'USD 350',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
-    );
   }
 }

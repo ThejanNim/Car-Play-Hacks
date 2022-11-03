@@ -99,14 +99,25 @@ class _ExplorePageState extends State<ExplorePage> {
                     ),
                     child: Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(30.0),
                               topRight: Radius.circular(30.0)),
                           color: Colors.grey[200]),
                       child: Column(
                         children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width,
+                          const SizedBox(
+                            height: 20.0,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [ExploreProduct(), ExploreProduct()],
+                          ),
+                          const SizedBox(
+                            height: 13.0,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [ExploreProduct(), ExploreProduct()],
                           ),
                         ],
                       ),
@@ -115,5 +126,70 @@ class _ExplorePageState extends State<ExplorePage> {
         ],
       ),
     ));
+  }
+}
+
+class ExploreProduct extends StatelessWidget {
+  const ExploreProduct({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+          color: Colors.white),
+      width: 155.0,
+      height: 243.0,
+      child: Column(
+        children: [
+          Image.asset('images/product2.png'),
+          SizedBox(
+            height: 20.0,
+          ),
+          Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'TMA-2 HD Wireless',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+                Text(
+                  'USD 350',
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 13.5,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15.0),
+            child: Row(
+              children: [
+                SizedBox(
+                    width: 9.0,
+                    height: 8.0,
+                    child: Image.asset('images/star.png')),
+                Text(
+                  '4.6',
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Text(
+                  '86 Reviews',
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

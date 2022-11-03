@@ -661,7 +661,8 @@ class _ProductPageState extends State<ProductPage>
                                     Container(
                                       width: MediaQuery.of(context).size.width,
                                       height: 300.0,
-                                      color: Color.fromARGB(255, 246, 246, 246),
+                                      color: const Color.fromARGB(
+                                          255, 246, 246, 246),
                                       child: Column(
                                         children: [
                                           Padding(
@@ -719,7 +720,7 @@ class _ProductPageState extends State<ProductPage>
                                                         children: [
                                                           Image.asset(
                                                               'assets/images/product2.png'),
-                                                          Text(
+                                                          const Text(
                                                             'TMA-2 HD Wireless',
                                                             style: TextStyle(
                                                                 fontSize: 14,
@@ -727,7 +728,7 @@ class _ProductPageState extends State<ProductPage>
                                                                     FontWeight
                                                                         .w400),
                                                           ),
-                                                          Text('USD 350',
+                                                          const Text('USD 350',
                                                               style: TextStyle(
                                                                   fontSize: 12,
                                                                   fontWeight:
@@ -753,7 +754,7 @@ class _ProductPageState extends State<ProductPage>
                                                         children: [
                                                           Image.asset(
                                                               'assets/images/product2.png'),
-                                                          Text(
+                                                          const Text(
                                                             'TMA-2 HD Wireless',
                                                             style: TextStyle(
                                                                 fontSize: 14,
@@ -761,7 +762,7 @@ class _ProductPageState extends State<ProductPage>
                                                                     FontWeight
                                                                         .w400),
                                                           ),
-                                                          Text('USD 350',
+                                                          const Text('USD 350',
                                                               style: TextStyle(
                                                                   fontSize: 12,
                                                                   fontWeight:
@@ -787,7 +788,7 @@ class _ProductPageState extends State<ProductPage>
                                                         children: [
                                                           Image.asset(
                                                               'assets/images/product2.png'),
-                                                          Text(
+                                                          const Text(
                                                             'TMA-2 HD Wireless',
                                                             style: TextStyle(
                                                                 fontSize: 14,
@@ -795,7 +796,7 @@ class _ProductPageState extends State<ProductPage>
                                                                     FontWeight
                                                                         .w400),
                                                           ),
-                                                          Text('USD 350',
+                                                          const Text('USD 350',
                                                               style: TextStyle(
                                                                   fontSize: 12,
                                                                   fontWeight:
@@ -899,10 +900,9 @@ class _ProductPageState extends State<ProductPage>
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          bottom: 8.0),
+                                                const Padding(
+                                                  padding: EdgeInsets.only(
+                                                      bottom: 8.0),
                                                   child: Text(
                                                     'APTX HD WIRELESS\nAUDIO',
                                                     style: TextStyle(
@@ -913,7 +913,7 @@ class _ProductPageState extends State<ProductPage>
                                                 ),
                                                 Container(
                                                   width: 199.0,
-                                                  child: Text(
+                                                  child: const Text(
                                                     'The Aptx® HD codec transmits 24-bit hi-res audio, equal to or better than CD quality.',
                                                     style: TextStyle(
                                                         fontSize: 14,
