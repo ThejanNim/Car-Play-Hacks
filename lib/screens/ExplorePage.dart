@@ -90,38 +90,11 @@ class _ExplorePageState extends State<ExplorePage> {
               ],
             ),
           ),
-          Expanded(child: LayoutBuilder(builder:
-              (BuildContext context, BoxConstraints viewportConstraints) {
-            return SingleChildScrollView(
-                child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: viewportConstraints.maxHeight,
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(30.0),
-                              topRight: Radius.circular(30.0)),
-                          color: Colors.grey[200]),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 20.0,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [ExploreProduct(), ExploreProduct()],
-                          ),
-                          const SizedBox(
-                            height: 13.0,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [ExploreProduct(), ExploreProduct()],
-                          ),
-                        ],
-                      ),
-                    )));
+          Expanded(child:
+              ListView.builder(itemBuilder: (BuildContext context, index) {
+            return Column(
+              children: [],
+            );
           }))
         ],
       ),

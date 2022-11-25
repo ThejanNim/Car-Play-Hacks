@@ -1,10 +1,12 @@
 import 'package:car_play/components/disable_search_bar.dart';
-import 'package:car_play/screens/ProductPage.dart';
+import 'package:car_play/model/categories.dart';
+import 'package:car_play/screens/ProductDetails.dart';
 import 'package:car_play/screens/ProfilePage.dart';
 import 'package:car_play/screens/SearchPage.dart';
 import 'package:flutter/material.dart';
 import 'package:car_play/api/rest_api.dart';
 import 'package:car_play/model/product.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -115,32 +117,32 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     Flexible(
                       child: Column(children: [
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(24.0, 10.0, 0, 0),
-                          child: Container(
-                            child: TabBar(
-                                isScrollable: true,
-                                controller: _tabController,
-                                indicatorColor: Colors.green,
-                                indicatorSize: TabBarIndicatorSize.tab,
-                                indicator: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15.0)),
-                                  color: Color.fromARGB(255, 10, 207, 131),
-                                ),
-                                labelColor: Colors.white,
-                                unselectedLabelColor: Colors.grey,
-                                labelPadding:
-                                    EdgeInsets.fromLTRB(16.0, 5.0, 16.0, 5.0),
-                                tabs: const [
-                                  Text("Headphones"),
-                                  Text("Headband"),
-                                  Text('Earpads'),
-                                  Text('Cable'),
-                                  Text('Movies'),
-                                  Text('EarPhone')
-                                ]),
-                          ),
-                        ),
+                            padding:
+                                const EdgeInsets.fromLTRB(24.0, 10.0, 0, 0),
+                            child: Container(
+                                child: TabBar(
+                              isScrollable: true,
+                              controller: _tabController,
+                              indicatorColor: Colors.green,
+                              indicatorSize: TabBarIndicatorSize.tab,
+                              indicator: const BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15.0)),
+                                color: Color.fromARGB(255, 10, 207, 131),
+                              ),
+                              labelColor: Colors.white,
+                              unselectedLabelColor: Colors.grey,
+                              labelPadding:
+                                  EdgeInsets.fromLTRB(16.0, 5.0, 16.0, 5.0),
+                              tabs: const [
+                                Text('Headphones'),
+                                Text('Earbuds'),
+                                Text('Cables'),
+                                Text('Phones'),
+                                Text('Tabs'),
+                                Text('Laptop')
+                              ],
+                            ))),
                         Expanded(
                           child: TabBarView(
                             controller: _tabController,
@@ -210,13 +212,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                                         .only(
                                                                     top: 5.0),
                                                             child: TextButton(
-                                                                onPressed: () {
-                                                                  Navigator.push(
-                                                                      context,
-                                                                      MaterialPageRoute(
-                                                                          builder: (context) =>
-                                                                              const ProductPage()));
-                                                                },
+                                                                onPressed:
+                                                                    () {},
                                                                 child:
                                                                     const Text(
                                                                   'Shop now',
@@ -492,57 +489,71 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                       .featured ==
                                                   false) {
                                                 // Featured product items
-                                                return Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          0, 0, 15.0, 20.0),
-                                                  child: Container(
-                                                    width: 155.0,
-                                                    decoration: const BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius.all(
-                                                                Radius.circular(
-                                                                    10.0)),
-                                                        color: Colors.white),
-                                                    child: Column(
-                                                      children: [
-                                                        Image.asset(
-                                                            'assets/images/product2.png'),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  left: 10.0),
-                                                          child: Column(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Text(
-                                                                  productmodel[
-                                                                          index]
-                                                                      .name,
-                                                                  style: const TextStyle(
-                                                                      fontSize:
-                                                                          14,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w400)),
-                                                              Text(
-                                                                  'USD ' +
-                                                                      productmodel[
-                                                                              index]
-                                                                          .price,
-                                                                  style: const TextStyle(
-                                                                      fontSize:
-                                                                          12,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700))
-                                                            ],
+                                                return GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                ProductDetails(
+                                                                    product:
+                                                                        productmodel[
+                                                                            index])));
+                                                  },
+                                                  child: Padding(
+                                                    padding: const EdgeInsets
+                                                            .fromLTRB(
+                                                        0, 0, 15.0, 20.0),
+                                                    child: Container(
+                                                      width: 155.0,
+                                                      decoration: const BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          10.0)),
+                                                          color: Colors.white),
+                                                      child: Column(
+                                                        children: [
+                                                          Image.network(
+                                                            productmodel[index]
+                                                                .images[0]
+                                                                .src,
+                                                            height: 125.0,
                                                           ),
-                                                        )
-                                                      ],
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    left: 10.0),
+                                                            child: Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                    productmodel[
+                                                                            index]
+                                                                        .name,
+                                                                    style: const TextStyle(
+                                                                        fontSize:
+                                                                            14,
+                                                                        fontWeight:
+                                                                            FontWeight.w400)),
+                                                                Text(
+                                                                    'USD ' +
+                                                                        productmodel[index]
+                                                                            .price,
+                                                                    style: const TextStyle(
+                                                                        fontSize:
+                                                                            12,
+                                                                        fontWeight:
+                                                                            FontWeight.w700)),
+                                                              ],
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
                                                     ),
                                                   ),
                                                 );
