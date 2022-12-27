@@ -1,12 +1,15 @@
 import 'package:car_play/api/rest_api.dart';
+import 'package:car_play/model/cart.dart';
+import 'package:car_play/model/cartProvider.dart';
 import 'package:car_play/model/product.dart';
 import 'package:car_play/model/product_reviews.dart';
 import 'package:car_play/screens/ShoppingCart.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_html/flutter_html.dart';
 
 class ProductDetails extends StatefulWidget {
-  const ProductDetails({super.key, required this.product});
+  ProductDetails({super.key, required this.product});
 
   final ProductModel product;
 
@@ -16,6 +19,7 @@ class ProductDetails extends StatefulWidget {
 
 class _ProductDetailsState extends State<ProductDetails> {
   late Future<List<ProductReviewsModel>> futureProductReviews;
+  final cart = CartProvider();
   @override
   void initState() {
     // TODO: implement initState
@@ -120,72 +124,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     );
                                   },
                                   scrollDirection: Axis.horizontal,
-                                  /*children: [
-                                    /*
-                                    ListView.builder(
-                                        itemCount: product.images.length,
-                                        itemBuilder:
-                                            (BuildContext context, index) {
-                                          return Padding(
-                                            padding: const EdgeInsets.fromLTRB(
-                                                20.0, 0, 0, 0),
-                                            child: Container(
-                                              width: 285.0,
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      const BorderRadius.all(
-                                                          Radius.circular(
-                                                              10.0)),
-                                                  color: Colors.grey[200]),
-                                              child: Image.network(
-                                                  product.images[index].src),
-                                            ),
-                                          );
-                                        })*/
-                                    /*
-                                    Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          20.0, 0, 0, 0),
-                                      child: Container(
-                                        width: 285.0,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                                    Radius.circular(10.0)),
-                                            color: Colors.grey[200]),
-                                        child: Image.network(
-                                            product.images[0].src),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          20.0, 0, 0, 0),
-                                      child: Container(
-                                        width: 285.0,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                                    Radius.circular(10.0)),
-                                            color: Colors.grey[200]),
-                                        child: Image.network(
-                                            product.images[1].src),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          20.0, 0, 0, 0),
-                                      child: Container(
-                                        width: 285.0,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                                    Radius.circular(10.0)),
-                                            color: Colors.grey[200]),
-                                        child: Image.network(
-                                            product.images[2].src),
-                                      ),
-                                    ),*/
-                                  ],*/
                                 ),
                               ),
                               SizedBox(
@@ -609,6 +547,18 @@ class _ProductDetailsState extends State<ProductDetails> {
                                             ),
                                           ],
                                         ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
+                                    Consumer<Carts>(
+                                      builder: (context, value, child) =>
+                                          InkWell(
+                                        onTap: () {
+                                          value.add(widget.product);
+                                        },
+                                        child: Text('Add Product'),
                                       ),
                                     )
                                   ],

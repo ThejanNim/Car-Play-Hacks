@@ -1,23 +1,26 @@
+import 'package:car_play/model/cartProvider.dart';
 import 'package:car_play/screens/HomePage.dart';
-import 'package:car_play/screens/ProductDetails.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: HomePage());
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (context) => Carts())],
+      child: MaterialApp(
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: HomePage()),
+    );
   }
 }

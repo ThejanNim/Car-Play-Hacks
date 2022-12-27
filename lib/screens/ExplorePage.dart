@@ -64,7 +64,7 @@ class _ExplorePageState extends State<ExplorePage> {
                     padding: const EdgeInsets.fromLTRB(15.0, 11.0, 15.0, 11.0),
                     child: Row(
                       children: [
-                        Image.asset('images/sliders.png'),
+                        Image.asset('assets/images/sliders.png'),
                         const SizedBox(
                           width: 8,
                         ),
@@ -117,7 +117,7 @@ class ExploreProduct extends StatelessWidget {
       height: 243.0,
       child: Column(
         children: [
-          Image.asset('images/product2.png'),
+          Image.asset('assets/images/product2.png'),
           SizedBox(
             height: 20.0,
           ),
@@ -146,7 +146,7 @@ class ExploreProduct extends StatelessWidget {
                 SizedBox(
                     width: 9.0,
                     height: 8.0,
-                    child: Image.asset('images/star.png')),
+                    child: Image.asset('assets/images/star.png')),
                 Text(
                   '4.6',
                   style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),

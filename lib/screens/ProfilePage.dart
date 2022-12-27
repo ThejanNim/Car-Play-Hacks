@@ -43,7 +43,7 @@ class ProfilePage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 24.0),
                     child: Row(
                       children: [
-                        Image.asset('images/profile_pic2.png'),
+                        Image.asset('assets/images/profile_pic2.png'),
                         SizedBox(
                           width: 26.0,
                         ),
